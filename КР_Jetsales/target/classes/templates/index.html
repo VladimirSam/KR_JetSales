@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.springframework.org/schema/security" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link  rel="stylesheet" th:href="@{/css/header.css}" />
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/button.css}" />
+</head>
+<body>
+<div class="header">
+    <!-- <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">-->
+    <!--        <input type="submit" value="logout">-->
+    <!--    </form>-->
+    <a th:href="@{/}" class="header_logo"> <img th:src="@{/images/irlik1.jpg}" alt="" class="header_img"></a>
+    <span class="empty_punkt"></span>
+   <a  sec:authorize="isAnonymous()" th:href="@{/login}">Войти</a>
+    <a  sec:authorize="isAnonymous()" th:href="@{/registration}">Зарегистрироваться</a>
+
+
+    <a th:if="${user != 'anonymous'}" th:text="${user}"></a>
+</div>
+
+<div class="container">
+
+<p>
+   Jetsales даёт вам возможноссть лекго и быстро резервировать авиабилеты.
+</p>
+    <a th:href="@{/zakaz} ">
+    <button class="button1" > Купить билет </button>
+    </a>
+</div>
+<div class="container1">
+    <p>
+        Покупайте авиабилеты быстро и без лишних телодвижений. Выбирите рейс, а всё остальное JetSales сделает за вас.
+
+
+    </p>
+
+</div>
+</body>
+</html>
